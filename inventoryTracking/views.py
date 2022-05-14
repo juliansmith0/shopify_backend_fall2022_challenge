@@ -61,3 +61,12 @@ def item_temp_delete(request, pk):
     else:
         form = ItemTempDeleteForm(instance=item)
     return render(request, "item_temp_delete.html", {'form': form})
+
+
+# ================================
+# T R A S H  B I N  P A G E
+# ================================
+
+def trash_bin(request):
+    context = {'items': Item.objects.all()}
+    return render(request, 'trash.html', context=context)

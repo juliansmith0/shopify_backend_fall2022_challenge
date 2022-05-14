@@ -9,8 +9,10 @@
         <th>ID</th>
         <th>ITEM</th>
         <th><abbr title="Quantity">QTY</abbr></th>
-        <th>EDIT</th>
-        <th><abbr title="Delete">DEL</abbr></th>
+        <th>DELETION NOTES</th>
+        <th>RESTORE</th>
+        <th>PERMANENTLY DELETE</th>
+
       </tr>
     </thead>
     <tfoot>
@@ -18,19 +20,21 @@
         <th>ID</th>
         <th>ITEM</th>
         <th><abbr title="Quantity">QTY</abbr></th>
-        <th>EDIT</th>
-        <th><abbr title="Delete">DEL</abbr></th>
+        <th>DELETION NOTES</th>
+        <th>RESTORE</th>
+        <th>PERMANENTLY DELETE</th>
       </tr>
     </tfoot>
     <tbody>
         {% for item in items %}
-            {% if not item.is_deleted %}
+            {% if item.is_deleted %}
             <tr>
                 <th>{{item.pk}}</th>
                 <td>{{item}}</td>
                 <td>{{item.quantity}}</td>
-                <td><a href="{% url 'item_edit' pk=item.pk %}">EDIT</a></td>
-                <td><a href="{% url 'item_temp_delete' pk=item.pk %}">DELETE</a></td>
+                <td>{{item.deletion_comment}}</td>
+                <td><a href="#">RESTORE</a></td>
+                <td><a href="#">PERMANENTLY DELETE</a></td>
             </tr>
             {% endif %}
         {% endfor %}
@@ -46,7 +50,6 @@
         </div>
     {% endfor %} -->
 
-    <a href="{% url 'item_creation' %}">Add Inventory</a>
-    <a href="{% url 'trash_bin' %}">Trash Bin</a>
+    <a href="{% url 'index' %}">Home</a>
 
 {% endblock %}

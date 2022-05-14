@@ -23,4 +23,5 @@ urlpatterns = [
     path('item/new/', views.item_creation, name='item_creation'),
     path('item/<int:pk>/edit/', views.item_edit, name='item_edit'),
     path('item/<int:pk>/temp_delete/', views.item_temp_delete, name='item_temp_delete'),
+    path('trash_bin/', views.trash_bin, name='trash_bin'),
 ]
