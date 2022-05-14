@@ -33,7 +33,7 @@
                 <td>{{item}}</td>
                 <td>{{item.quantity}}</td>
                 <td>{{item.deletion_comment}}</td>
-                <td><a href="#">RESTORE</a></td>
+                <td><a href="{% url 'item_restore' pk=item.pk %}">RESTORE</a></td>
                 <td><a href="#">PERMANENTLY DELETE</a></td>
             </tr>
             {% endif %}

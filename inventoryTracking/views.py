@@ -64,6 +64,19 @@ def item_temp_delete(request, pk):
 
 
 # ================================
+# R E S T O R E  P A G E
+# ================================
+
+def item_restore(request, pk):
+    item = get_object_or_404(Item, pk=pk)
+    if request.method == "POST":
+        item.is_deleted = False
+        item.save(update_fields=['is_deleted'])
+        return redirect('index')
+    return render(request, "item_restore.html", {'item': item})
+
+
+# ================================
 # T R A S H  B I N  P A G E
 # ================================
 
