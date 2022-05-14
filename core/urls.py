@@ -20,4 +20,5 @@ from inventoryTracking import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
+    path('item/new/', views.item_creation, name='item_creation'),
 ]
