@@ -30,7 +30,7 @@
                 <td>{{item}}</td>
                 <td>{{item.quantity}}</td>
                 <td><a href="{% url 'item_edit' pk=item.pk %}">EDIT</a></td>
-                <td><a href="#">DELETE</a></td>
+                <td><a href="{% url 'item_temp_delete' pk=item.pk %}">DELETE</a></td>
             </tr>
             {% endif %}
         {% endfor %}
