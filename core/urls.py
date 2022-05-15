@@ -25,4 +25,5 @@ urlpatterns = [
     path('item/<int:pk>/temp_delete/', views.item_temp_delete, name='item_temp_delete'),
     path('trash_bin/', views.trash_bin, name='trash_bin'),
     path('item/<int:pk>/restore/', views.item_restore, name='item_restore'),
+    path('item/<int:pk>/delete/', views.item_perma_delete, name='item_perma_delete'),
 ]

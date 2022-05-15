@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, HttpResponseRedirect
 from .models import Item
 from .forms import ItemForm, ItemTempDeleteForm
 
@@ -83,3 +83,16 @@ def item_restore(request, pk):
 def trash_bin(request):
     context = {'items': Item.objects.all()}
     return render(request, 'trash.html', context=context)
+
+
+# ================================
+# P E R M A  D E L E T E  P A G E
+# ================================
+
+def item_perma_delete(request, pk):
+    item = get_object_or_404(Item, pk=pk)
+
+    if request.method == "POST":
+        item.delete()
+        return HttpResponseRedirect("/")
+    return render(request, "item_perma_delete.html")
